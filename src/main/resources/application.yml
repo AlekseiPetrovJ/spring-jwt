@@ -1,0 +1,34 @@
+spring:
+  application:
+    name: spring-jwt
+  jpa:
+    hibernate:
+#      ddl-auto: validate
+              ddl-auto: create
+    properties:
+      hibernate:
+        format_sql: true
+    show-sql: true
+  datasource:
+    driver: org.postgresql.Driver
+#    url: jdbc:postgresql://postgres:5432/springjwt
+    url: jdbc:postgresql://localhost:5433/springjwt
+    username: springjwt
+    password: springjwt
+  liquibase:
+    enabled: true
+    change-log: classpath:/changelog/changelog.xml
+server:
+  port: 8080
+springdoc:
+  default-consumes-media-type: application/json
+  default-produces-media-type: application/json
+  swagger-ui:
+    path: /swagger-ui.html
+  api-docs:
+    path: /api-docs
+
+jwt:
+  secret: im8476rgf8i7r6geue7wn6ergn76ergfs76wngrfiwuntrfbyt5rd6
+  tokenExpiration: 1m
+  refreshTokenExpiration: 10m

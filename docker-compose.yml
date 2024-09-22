@@ -1,0 +1,21 @@
+version: '3.9'
+services:
+  postgres:
+    image: postgres:15.5
+    environment:
+      POSTGRES_DB: "springjwt"
+      POSTGRES_USER: "springjwt"
+      POSTGRES_PASSWORD: "springjwt"
+      PGDATA: "/var/lib/postgresql/data/pgdata"
+    ports:
+      - '5433:5432'
+
+  aop:
+    image: petrov/spring-jwt:0.0.1-SNAPSHOT
+    ports:
+      - '8080:8080'
+    environment:
+      - "SPRING_PROFILES_ACTIVE=dev"
+    depends_on:
+      postgres:
+        condition: service_started
