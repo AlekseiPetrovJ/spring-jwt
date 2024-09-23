@@ -30,5 +30,4 @@ springdoc:
 
 jwt:
   secret: im8476rgf8i7r6geue7wn6ergn76ergfs76wngrfiwuntrfbyt5rd6
-  tokenExpiration: 1m
-  refreshTokenExpiration: 10m
+  tokenExpiration: 15m
