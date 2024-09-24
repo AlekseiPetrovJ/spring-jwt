@@ -1,6 +1,7 @@
 package ru.petrov.springjwt.controller;
 
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -13,6 +14,7 @@ import ru.petrov.springjwt.service.UserService;
 @RequestMapping("/example")
 @RequiredArgsConstructor
 @Tag(name = "Примеры", description = "Примеры запросов с разными правами доступа")
+@SecurityRequirement(name = "bearerAuth")
 public class ExampleController {
     private final UserService userService;
 

@@ -47,7 +47,6 @@ public class UserService {
 
     /**
      * Получение пользователя по имени пользователя
-     *
      * Нужен для Spring Security
      *
      * @return пользователь
