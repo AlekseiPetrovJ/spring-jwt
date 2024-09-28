@@ -8,7 +8,7 @@
 
 
     <changeSet id="1727189440677-1" author="Aleksei Petrov">
-        <createSequence incrementBy="1" sequenceName="users_seq" startValue="1000"/>
+        <createSequence incrementBy="50" sequenceName="users_seq" startValue="1000"/>
     </changeSet>
     <changeSet id="1727189440677-2" author="Aleksei Petrov">
         <createTable tableName="users">
