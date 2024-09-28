@@ -34,3 +34,19 @@ linux:
 
 ## OpenAPI
 [AOP](http://127.0.0.1:8080/swagger-ui/index.html)
+
+##Credentials
+
+Пользователь с полными правами:
+
+```
+"username": "admin",
+"password": "admin"
+```
+
+Пользователь с ограниченными правами:
+
+```
+"username": "user",
+"password": "user"
+```

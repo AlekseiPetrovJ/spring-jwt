@@ -6,7 +6,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import ru.petrov.springjwt.exception.UserAlreadyExistAuthenticationException;
+import ru.petrov.springjwt.exception.UserAlreadyExistException;
 import ru.petrov.springjwt.model.User;
 import ru.petrov.springjwt.repository.UserRepository;
 
@@ -24,11 +24,11 @@ public class UserService {
     @Transactional
     public User create(User user) {
         if (repository.existsByUsername(user.getUsername())) {
-            throw new UserAlreadyExistAuthenticationException("Пользователь с таким именем уже существует");
+            throw new UserAlreadyExistException("Пользователь с таким именем уже существует");
         }
 
         if (repository.existsByEmail(user.getEmail())) {
-            throw new UserAlreadyExistAuthenticationException("Пользователь с таким email уже существует");
+            throw new UserAlreadyExistException("Пользователь с таким email уже существует");
         }
 
         return repository.save(user);

@@ -10,7 +10,7 @@ services:
     ports:
       - '5433:5432'
 
-  aop:
+  jwt:
     image: petrov/spring-jwt:0.0.1-SNAPSHOT
     ports:
       - '8080:8080'
