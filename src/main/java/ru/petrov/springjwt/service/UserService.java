@@ -2,7 +2,6 @@ package ru.petrov.springjwt.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -43,16 +42,6 @@ public class UserService {
         return repository.findByUsername(username)
                 .orElseThrow(() -> new UsernameNotFoundException("Пользователь не найден"));
 
-    }
-
-    /**
-     * Получение пользователя по имени пользователя
-     * Нужен для Spring Security
-     *
-     * @return пользователь
-     */
-    public UserDetailsService userDetailsService() {
-        return this::getByUsername;
     }
 
     /**

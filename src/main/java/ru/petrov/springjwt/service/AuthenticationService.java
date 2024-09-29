@@ -3,6 +3,7 @@ package ru.petrov.springjwt.service;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import ru.petrov.springjwt.model.Role;
@@ -18,6 +19,7 @@ public class AuthenticationService {
     private final JwtService jwtService;
     private final PasswordEncoder passwordEncoder;
     private final AuthenticationManager authenticationManager;
+    private final UserDetailsService userDetailsService;
 
     /**
      * Регистрация пользователя
@@ -52,11 +54,8 @@ public class AuthenticationService {
                 request.getPassword()
         ));
 
-        var user = userService
-                .userDetailsService()
-                .loadUserByUsername(request.getUsername());
-
-        var jwt = jwtService.generateToken(user);
+        var jwt = jwtService.generateToken(userDetailsService
+                .loadUserByUsername(request.getUsername()));
         return new JwtAuthenticationResponse(jwt);
     }
 }
