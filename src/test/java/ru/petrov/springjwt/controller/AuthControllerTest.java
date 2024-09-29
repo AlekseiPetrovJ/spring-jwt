@@ -56,9 +56,7 @@ public class AuthControllerTest {
     @Test
     @DisplayName("Попытка получить токен в случае успешной авторизации")
     void signIn_ShouldReturnToken_WhenValidRequest() {
-        SignInRequest request = new SignInRequest();
-        request.setPassword("teststst");
-        request.setUsername("teststst");
+        SignInRequest request = new SignInRequest("teststst", "teststst");
         JwtAuthenticationResponse jwtResponse = new JwtAuthenticationResponse("token");
 
         when(authenticationService.signIn(any(SignInRequest.class))).thenReturn(jwtResponse);
