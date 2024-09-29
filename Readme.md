@@ -1,3 +1,5 @@
+[![spring-jwt with Maven](https://github.com/AlekseiPetrovJ/spring-jwt/actions/workflows/maven.yml/badge.svg)](https://github.com/AlekseiPetrovJ/spring-jwt/actions/workflows/maven.yml)
+
 # Реализация аутентификации и авторизации с использованием Spring Security и JWT
 
 Реализованы REST методы:
